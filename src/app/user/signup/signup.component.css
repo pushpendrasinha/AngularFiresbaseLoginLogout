@@ -1,0 +1,25 @@
+.material-icons{
+	color:  #a9a9a9;
+}
+
+.card{
+	width: 70%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.col-md-4{
+	background-color: #2874f0;
+	color:white;
+}
+
+.card-footer button{
+	background-color:#fb641b;
+	color: white;
+}
+
+
+.wrapper{
+	margin: 5%;
+}
+

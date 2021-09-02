@@ -1,0 +1,40 @@
+<div class="container">
+
+
+   <div class="mt-5 mb-3 ">
+      <app-user-header></app-user-header>
+  </div>
+
+
+
+
+  <div class="wrapper d-flex justify-content-center">
+        <div class="card mt-3  col-6" style="margin-bottom:9%;">
+            <div class="card-body">
+             <form  [formGroup]="userForm"  (ngSubmit)="onSubmit()" class = "row g-3" style="padding: 2%;" >
+
+               <div class="mb-3">
+                 <span class="material-icons">person</span>
+                 <label for="name">&nbsp; {{profileInfo.displayName}}</label>
+                 <input type="text" id="name" class="form-control" placeholder="Enter your current name to update" formControlName="name" required>         
+               </div>
+
+             <div class="mb-3">
+                 <span class="material-icons">email</span>
+                 <label for="email">&nbsp; {{profileInfo.email}}</label>
+                 <input type="text" id="email" class="form-control" placeholder="Enter your current email address to update" formControlName="email" required>          
+             </div>
+
+               
+
+            <div class="text-center">
+             <button type="submit" class="btn btn-default waves-effect waves-light" style="background-color:#42b72a;color:white;" 
+               [disabled]="!userForm.valid" >Update</button>
+            </div>
+        </form>   
+    </div>
+</div>
+                  </div>
+
+
+              </div>

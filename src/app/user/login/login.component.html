@@ -1,0 +1,47 @@
+
+
+<div class="container">
+
+    <div *ngIf="error" class="alert alert-light mt-5" role="alert">
+      <strong>We encountered an error:-</strong> {{error}} 
+  </div>
+
+<div class="wrapper h-100 d-flex align-items-center justify-content-center" >
+<div class="card">
+    <div class="row g-0">
+      <div class="col-md-4">
+          <h3 class="py-2 px-2">Login</h3>
+          <p class="py-3 px-2">Get access to your Dashboard, <br>and do more.</p>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+         <form [formGroup]="loginform" (ngSubmit)="onLogin()" >
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="text" id="email" class="form-control" formControlName="email" >
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3 password">
+              <label for="Password" class="form-label">Password</label>
+              <input [type]="passwordType ? 'password' : 'text'" id="password" class="form-control" formControlName="password"> 
+              <input type="checkbox" (click)="togglePassword()" class="form-check-input">Show Password
+          </div>
+
+          <div class="text-center mb-1">
+              <button type="submit" class="btn waves-effect waves-light" style="background-color:#2874f0;     
+              color:white;" [disabled]="loginform.invalid">  
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span> 
+          &nbsp;Login</button>
+      </div>
+  </form>
+
+  <div class="card-footer bg-transparent border-success text-center">
+    <button type="button" class="btn" routerLink="/signup">New here? Create an account</button>
+</div>
+</div>
+</div>
+</div>  
+</div>
+</div>
+
+</div>

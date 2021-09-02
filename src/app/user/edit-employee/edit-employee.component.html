@@ -1,0 +1,61 @@
+<div class = "container">
+
+  <div class="mt-5 mb-3">
+  <app-user-header></app-user-header>
+</div>
+
+<div class="wrapper d-flex align-items-center justify-content-center mt-5">
+  <div class="row">
+  <div class="col">
+    <div class="card mb-4"  >
+      <div class="card-body" >
+        <div class="row">
+            <div class="col-sm-8">
+             <img src="https://ui-avatars.com/api/?name={{employee.name}}&rounded=true&size=128">
+            </div>
+            <div class="col-sm-10">
+            <h5 class="card-title">Name:- {{employee.name}}</h5>
+            <p class="card-text">Designation:- {{employee.designation}}</p>
+            <p class="card-text">Skills:- {{employee.skills}}</p>
+            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"  data-bs-target="#editFormModal">
+            Edit Employee
+          </button> &nbsp;
+           <button type="button" routerLink="/dashboard" class="btn btn-sm btn-success" > Back</button>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="editFormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+     <form  [formGroup]="editForm"   class = "row g-3" style="padding: 2%;" >
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="name" class="form-control" id="name" placeholder="Enter your name" formControlName="name" >
+  </div>
+   <div class="form-group">
+    <label for="designation">Designation</label>
+    <input type="text" class="form-control" id="designation" placeholder="Your designation" formControlName="designation" >
+  </div>
+   <div class="form-group">
+    <label for="skills">Skills</label>
+    <input type="text" class="form-control" id="skills" placeholder="skills" formControlName="skills" >
+  </div>
+  <div class="modal-footer">     
+        <button type="submit" class="btn" style="color: white;background: #435d7d" (click)="onUpdate()" data-bs-dismiss="modal"  >
+        Update </button>
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"   >Close</button>
+      </div>
+</form>   
+    </div>
+  </div>
+</div> 

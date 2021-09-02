@@ -1,0 +1,61 @@
+<div class="container">
+     <div *ngIf="error" class="alert alert-light mt-5" role="alert">
+                      <strong>We encountered an error:-</strong> {{error}}
+                    </div>
+  
+  <div class="wrapper h-100 d-flex align-items-center justify-content-center" >
+
+  <div class="card ">
+    <div class="row g-0">
+      <div class="col-md-4">
+          <h3 class="py-2 px-2">Looks like you're new here!</h3>
+          <p class="py-3 px-2">Sign up with your email address to get started</p>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+           <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" >
+             <div class="mb-3">
+              <label for="name" class="form-label">Your name</label>
+               <input type="text" id="name" class="form-control" formControlName="name" >
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+               <input type="text" id="email" class="form-control" formControlName="email" >
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="Password" class="form-label">Password</label>
+              <input type="password" id="password" class="form-control" formControlName="password"> 
+            </div>
+
+           <!--  <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Show Password</label>
+            </div>  -->
+            <div class="mb-3">
+                <label for="cnfpassword">&nbsp;Confirm password</label>
+                <input [ngClass]="signupForm.errors?.mismatch" type="password" id="cnfpassword" class="form-control" placeholder="Confirm password" formControlName="confirmPassword" > 
+                <small *ngIf="signupForm.errors?.mismatch" class="text-danger">Passwords do not match.</small>
+            </div>  
+            <div class="text-center mb-1">
+              <button type="submit" class="btn waves-effect waves-light" style="background-color:#2874f0; 
+                color:white;" [disabled]="signupForm.invalid" >Continue</button>
+            </div>
+          </form>
+
+          <div class="card-footer bg-transparent border-success text-center">
+            <button type="button" class="btn" routerLink="/signin">Existing User? Log in</button>
+          </div>
+        </div>
+      </div>
+    </div>  
+
+
+</div>
+
+</div>
+
+</div>
+

@@ -1,0 +1,65 @@
+
+<div class="container">
+<div class="wrapper mt-5 mb-3">
+
+<app-user-header></app-user-header>
+
+
+<div class="row"  >
+  <div class="col-sm-6" *ngFor="let e of employees">
+    <div class="card mb-2"  >
+      <div class="card-body" >
+        <div class="row">
+            <div class="col-sm-4">
+             <img src="https://ui-avatars.com/api/?name={{e.name}}&rounded=true&size=128">
+            </div>
+            <div class="col-sm-8">
+            <h5 class="card-title">Name:- {{e.name}}</h5>
+            <p class="card-text">Designation:- {{e.designation}}</p>
+            <p class="card-text">Skills:- {{e.skills}}</p>
+            <button type="button" class="btn btn-primary"  routerLink="/edit/{{e.empId}}" >
+            Edit Employee
+          </button> &nbsp;
+          <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(e.empId)" >
+            <span class="material-icons">clear</span> 
+          </button>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+     <form  [formGroup]="addForm"   class = "row g-3" style="padding: 2%;" >
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="name" class="form-control" id="name" placeholder="Enter your name" formControlName="name" >
+  </div>
+   <div class="form-group">
+    <label for="designation">Designation</label>
+    <input type="text" class="form-control" id="designation" placeholder="Your designation" formControlName="designation" >
+  </div>
+   <div class="form-group">
+    <label for="skills">Skills</label>
+    <input type="text" class="form-control" id="skills" placeholder="skills" formControlName="skills" >
+  </div>
+  <div class="modal-footer">     
+        <button type="submit" class="btn" style="color: white;background: #435d7d" (click)="onSubmit()" data-bs-dismiss="modal"  >
+        Save </button>
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+      </div>
+</form>   
+    </div>
+  </div>
+</div> 
+
